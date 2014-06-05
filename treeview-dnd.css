@@ -1,0 +1,112 @@
+/*you can modify this by yourself*/
+.treeview{
+    padding:10px 30px;
+}
+
+.treeview .edit-element{
+    -webkit-user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+.dragging{
+   border:1px solid #0099b7; 
+   background-color: white;
+   filter:alpha(opacity=70);
+   color:#111;
+   opacity:0.7;
+}
+
+.dragging-target{
+    color:silver;
+}
+
+.dragging-over{
+    background-color: #0099b7; 
+}
+.treeview .item-labelbox{
+    height:42px;
+}
+.treeview .item-labelbox .item-label{
+    padding:8px 0 7px 0;
+}
+.treeview  .expand .item-label{
+}
+.treeview  .expand .expand .item-label{
+    padding-left: 50px;
+}
+.treeview  .expand .expand .expand .item-label{
+    padding-left: 100px;
+}
+.treeview  .expand .expand .expand  .expand .item-label{
+    padding-left: 150px;
+}
+
+.treeview .edit-element .insert{
+    position: absolute;width:100%;    
+    height: 15px;
+    top:34.5px;
+}
+.treeview .delete{
+    display:none;
+}
+
+.treeview .expand{
+    border-top: 1px solid #ddd;
+}
+.treeview .expand-header{
+    cursor: pointer;
+}
+
+.treeview .expand-header-hover{
+    background-color:#e8f0f8;
+}
+.treeview .selected{
+    background-color: #f0f8ff;
+}
+.treeview .ct-controls{
+    position: absolute;
+    padding-top: 5px;
+    right: 8px;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    text-align: right;
+}
+
+.treeview .level1-header{
+    cursor: pointer;
+    text-indent: 5px;
+}
+
+.treeview .level-1{
+    border-top: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.treeview .level-2{
+   border-top: 1px solid #ddd;
+}
+
+.treeview ul,.treeview li,.selectview ul,.selectview li{
+    list-style: none;margin: 0;padding: 0;
+}
+.selectview li{
+    position: relative;
+}
+
+.selectview .select-labelbox{
+    cursor: pointer;
+    margin-left:10px;
+    height:42px;
+}
+.selectview .select-labelbox .item-label{
+    padding:8px 0 7px 0;
+}
+
+.treeview .label-icon,.selectview .label-icon{
+    display: inline-block;
+    vertical-align: middle;
+    width: 18px;
+    height: 20px;
+    margin-right: 6px;
+}

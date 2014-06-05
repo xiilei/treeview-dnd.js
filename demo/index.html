@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>treeview-dnd demo</title>
+    <link rel="stylesheet" href="../treeview-dnd.css"/>
+    <style type="text/css">
+    body{font-family:'微软雅黑',Arial;font-size:13px;}
+    ul,li{margin:0;padding:0}
+    .main-container{}
+    .main-container .sidebar{
+        position: absolute;   
+        width: 265px;
+        height: 100%;
+    }
+    .main-container .sidebar-left{
+        background-color: #e6e6eb;
+        left:10px; 
+        top:10px;
+    }
+    .main-container .content-panel{
+        margin: 0px 280px;
+        background-color: #f2f2f6;
+    }
+    .label-icon-1{
+        background:#05a6e2;
+    }
+    .label-icon-2{
+        background:#898a90;
+    }
+    .label-icon-3{
+        background:#898a90;
+    }
+    .expand-icon{
+        background:none;
+        color:#05a6e2;
+        font-weight:bold;
+        text-align:center;
+        line-height:20px;
+        margin-top:-3px;
+    }
+    
+    </style>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript" src="./sea.js"></script>
+    <script type="text/javascript">
+        seajs.config({
+            debug: true,
+            charset: 'utf-8'
+        });
+        define('jquery',[],function(require, exports, module) {
+            module.exports = jQuery;
+        });
+    </script>
+</head>
+<body>
+<div class="main-container">
+    <div class="sidebar sidebar-left">
+        <div class="selectview">
+        <ul>
+            <li data-level="1">
+                <div class="select-labelbox">
+                    <div class="item-label"><span class="label-icon label-icon-1"></span>一级节点</div>
+                </div>
+            </li>
+            <li data-level="2">
+                <div class="select-labelbox">
+                    <div class="item-label"><span class="label-icon label-icon-2"></span>二级节点</div>
+                </div>
+            </li>
+            
+            <li data-level="3">
+                <div class="select-labelbox">
+                    <div class="item-label"><span class="label-icon label-icon-3"></span>三级节点</div>
+                </div>
+            </li>
+
+        </ul>
+       </div> 
+    </div>
+    <div class="content-panel">
+        <div class="treeview" id="treeview_id"></div>
+    </div>
+    <div class="sidebar sidebar-right"></div>
+ </div>
+<script type="text/javascript">
+seajs.use('demo');//ie10 ?
+</script>
+</body>
+</html>
