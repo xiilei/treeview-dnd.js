@@ -116,6 +116,7 @@ define(function(require, exports, module) {
                me.setArea(me._items[i]);
                me._items[i].data('dnd_id',i+1);
            }
+           me._countId  = me._items.length == 0 ? 1 : me._items.length;
         },
         
         removeItem:function(target){
@@ -158,7 +159,7 @@ define(function(require, exports, module) {
                 return false;
             }
             if(this._target.data('dnd_id') == item.data('dnd_id') ||
-                  item.hasClass('dropdisabled')){
+                  item.hasClass(this.dropDisableCls)){
                 return false;
             }
             return true;
