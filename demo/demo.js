@@ -55,7 +55,7 @@ define(function(require, exports, module) {
         }
     ];
     
-    Dnd.levelsAttr[1]['icon'] = '<span class="label-icon label-icon-2 expand-icon">></span>';
+    Dnd.levelsAttr[1]['icon'] = '<span class="label-icon label-icon-2 expand-icon">∨</span>';
     Dnd.render(data,J('#treeview_id'),{'controls':'<button type="button" class="btn btn-default btn-sm delete">删除</button>'});
     
     var events = {

@@ -110,21 +110,30 @@ define(function(require, exports, module) {
            return target;
         },
         
-        updateArea:function(){
-           var me = this,i=0;
-           for(;i<me._items.length;i++){
-               me.setArea(me._items[i]);
-               me._items[i].data('dnd_id',i+1);
+        //offset 参数非常重要,可以提高效率
+        updateArea:function(offset){
+           var me = this;
+           if(!offset){ 
+              offset = 0;
+           }else{
+              offset = parseInt(offset);
+              offset = isNaN(offset)? 0 : offset;
+           }
+           for(;offset<me._items.length;offset++){
+               me.setArea(me._items[offset]);
+               me._items[offset].data('dnd_id',offset+1);
            }
            me._countId  = me._items.length == 0 ? 1 : me._items.length;
         },
         
         removeItem:function(target){
-           if(target.data('dnd_id')){
-               this._items.splice(target.data('dnd_id')-1,1);	       
-           }
+           var dnd_id = target.data('dnd_id'); 
+           
            target.parent().detach(); 
-           this.updateArea();
+           if(dnd_id){
+               this._items.splice(dnd_id-1,1);
+               this.updateArea(dnd_id-1);
+           }
         },
         
         addItemDrop:function(cls,target){
@@ -213,7 +222,7 @@ define(function(require, exports, module) {
                     handle['drop'] = this._defaultDrop;                    
                 }
                 handle['drop'].call(this,this._appendType,this._target,this._lastHit);
-                this.updateArea();
+                this.updateArea(Math.min(this._target.data('dnd_id'),this._lastHit.data('dnd_id'))-1);
             }
             if(this._lastHit && this._draghoverCls){
                this._lastHit.removeClass(this._draghoverCls);
