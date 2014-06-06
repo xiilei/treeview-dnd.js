@@ -110,7 +110,7 @@ define(function(require, exports, module) {
                     break;
             } 
             var target = dom.children('.item-labelbox');
-            this.addItemDrop('.item-labelbox',target);
+            this.addItem('.item-labelbox',target);
             if(target.dndlevel==='2'){
                 bindexpand(target.find('.expand-icon'),target.siblings('ul'));
             }

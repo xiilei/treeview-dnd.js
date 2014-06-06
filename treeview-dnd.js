@@ -1,7 +1,8 @@
 /**
  * treeview-dnd.js CommonJS
+ *
+ * https://github.com/empty125/treeview-dnd.js
  * @author xilei
- * 
  */
 define(function(require, exports, module) {
     var J = require('jquery');
@@ -136,7 +137,7 @@ define(function(require, exports, module) {
            }
         },
         
-        addItemDrop:function(cls,target){
+        addItem:function(cls,target){
             if(!cls || !target){
                 return false;
             }            
@@ -370,7 +371,7 @@ define(function(require, exports, module) {
     //J.extend({},Dnd.levelsAttr[level-1])
     Dnd.levelsAttr =[
         {'icon':'<span class="label-icon label-icon-1"></span>','title':'新的一级节点','cls':'item-labelbox','expand':true},
-        {'icon':'<span class="label-icon label-icon-2 expand-icon">∨</span>','title':'新的二级节点','cls':'item-labelbox','expand':true},
+        {'icon':'<span class="label-icon label-icon-2 expand-icon"></span>','title':'新的二级节点','cls':'item-labelbox','expand':true},
         {'icon':'<span class="label-icon label-icon-3"></span>','title':'新的三级节点','cls':'item-labelbox','expand':true},
         {'icon':'<span class="label-icon label-icon-4"></span>','title':'新的四级节点','cls':'item-labelbox','expand':true}
     ];
