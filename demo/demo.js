@@ -10,26 +10,22 @@ define(function(require, exports, module) {
            children:[
                {
                     attrs:{id:''},
-                    icon:'<span class="label-icon label-icon-2 expand-icon">∨</span>',
                     cls:'item-labelbox',
                     title:'二级节点1',
                     children:[
                         {
                            attrs:{id:''},
-                           icon:'<span class="label-icon label-icon-3"></span>',
                            cls:'item-labelbox',
                            title:'三级节点1-1'
                         },
                         {
                            attrs:{id:''},
-                           icon:'<span class="label-icon label-icon-3"></span>',
                            cls:'item-labelbox',
                            title:'三级节点1-2'
                         }
                     ]
                }
            ],
-           icon:'<span class="label-icon label-icon-1"></span>',
            cls:'item-labelbox',
            title:'一级节点1'
         },
@@ -38,31 +34,28 @@ define(function(require, exports, module) {
            children:[
                {
                     attrs:{id:''},
-                    icon:'<span class="label-icon label-icon-2 expand-icon">∨</span>',
                     cls:'item-labelbox',
                     title:'二级节点2',
                     children:[
                         {
                            attrs:{id:''},
-                           icon:'<span class="label-icon label-icon-3"></span>',
                            cls:'item-labelbox',
                            title:'三级节点2-1'
                         },
                         {
                            attrs:{id:''},
-                           icon:'<span class="label-icon label-icon-3"></span>',
                            cls:'item-labelbox',
                            title:'三级节点2-2'
                         }
                     ]
                }
            ],
-           icon:'<span class="label-icon label-icon-1"></span>',
            cls:'item-labelbox',
            title:'一级节点2'
         }
     ];
     
+    Dnd.levelsAttr[1]['icon'] = '<span class="label-icon label-icon-2 expand-icon">></span>';
     Dnd.render(data,J('#treeview_id'),{'controls':'<button type="button" class="btn btn-default btn-sm delete">删除</button>'});
     
     var events = {

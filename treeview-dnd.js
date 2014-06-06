@@ -72,7 +72,7 @@ define(function(require, exports, module) {
                  'middle':offset.top+oh/2
              }; 
              target.dndparent=target.parent();
-             target.dndlevel =target.dndparent.attr('data-level') || 3; 
+             target.dndlevel =target.dndparent.attr('data-level') || 1; 
              return target;
         },
         
@@ -120,11 +120,11 @@ define(function(require, exports, module) {
         },
         
         removeItem:function(target){
-           if(target.dndlevel){
-               this._items.splice(target.dndlevel-1,1);
+           if(target.data('dnd_id')){
+               this._items.splice(target.data('dnd_id')-1,1);	       
            }
-           target.parent().detach();
-           this.updateArea();       
+           target.parent().detach(); 
+           this.updateArea();
         },
         
         addItemDrop:function(cls,target){
@@ -420,19 +420,21 @@ define(function(require, exports, module) {
         if(options && options['controls']){
             this._newHtml = this._newHtml.replace('{#controls}',options['controls']);
         }
-        var i = 0,_h = [],tree='',_t='';
+        var i = 0,_h = [],_t='';
         for(;i<data.length;i++){
             _t = this._render(data[i],1);
             if(_t)_h.push(_t);
         }
-        if(!to) return _h.join('');
-        to.html('<ul>'+_h.join('')+'</ul>');        
+        var html =  '<ul>'+_h.join('')+'</ul>';
+	if(!to) return html;
+        to.html(html);        
     };
     
     
     Dnd._render=function(item,level){
         if(!item ||!level) return '';
         var i='',j=0,attrs = {},_ch=[];
+        item=J.extend({},Dnd.levelsAttr[level-1],item);
         for(i in item){
            if(i == 'children' && item[i]){
                for(j=0;j<item[i].length;j++){
