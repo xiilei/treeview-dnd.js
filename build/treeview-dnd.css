@@ -8,7 +8,7 @@
     cursor: pointer;
     position: relative;
 }
-.dragging{
+.treeview .dragging,.selectview .dragging{
    border:1px solid #0099b7; 
    background-color: white;
    filter:alpha(opacity=70);
@@ -16,11 +16,11 @@
    opacity:0.7;
 }
 
-.dragging-target{
+.treeview .dragging-target,.selectview .dragging-target{
     color:silver;
 }
 
-.dragging-over{
+.treeview .edit-element .dragging-over{
     background-color: #0099b7; 
 }
 .treeview .item-labelbox{
