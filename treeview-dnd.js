@@ -2,6 +2,7 @@
  * treeview-dnd.js CommonJS
  *
  * https://github.com/empty125/treeview-dnd.js
+ * @license http://www.apache.org/licenses/LICENSE-2.0
  * @author xilei
  */
 define(function(require, exports, module) {
@@ -286,6 +287,7 @@ define(function(require, exports, module) {
         
         _bindDrag:function(target,handle){
             target.bind('mousedown',{dnd:this,handle:handle},function(e){
+		if(e.button===2)return false;
                 e.stopPropagation();
                 e.preventDefault();
                 var _this = J(this);
