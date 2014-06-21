@@ -224,7 +224,7 @@ define(function(require, exports, module) {
                     handle['drop'] = this._defaultDrop;                    
                 }
                 handle['drop'].call(this,this._appendType,this._target,this._lastHit);
-                this.updateArea(Math.min(this._target.data('dnd_id'),this._lastHit.data('dnd_id'))-1);
+                this.updateArea(0);
             }
             if(this._lastHit && this._draghoverCls){
                this._lastHit.removeClass(this._draghoverCls);
