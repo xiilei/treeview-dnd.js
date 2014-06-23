@@ -307,10 +307,12 @@ define(function(require, exports, module) {
                        _copy.addClass(e.data.handle.draggingCls);
                     }
                     dnd._dragoffset = offset;
+		    
+		    dnd.setCurrentItem(_this,_copy);    
                     if(J.type(handle['drag']) == "function"){
                         handle['drag'].call(e.data.dnd);
                     }
-                    dnd.setCurrentItem(_this,_copy);                    
+                                    
                 },100);//延迟100ms的好处不言而喻
                 
             });
