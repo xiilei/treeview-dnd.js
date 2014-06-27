@@ -393,8 +393,8 @@ define(function(require, exports, module) {
              }
              _attrs['data-level'] = level;
              _level = level;
-             level = this.levelsAttr[level-1];
-             
+             //level = this.levelsAttr[level-1];
+             level =J.extend({},this.levelsAttr[level-1]) ;
          }else{
              if(!attrs['level']){
                  return false;
