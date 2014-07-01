@@ -351,6 +351,10 @@ define(function(require, exports, module) {
                 dnd._copy.detach();
                 dnd.updateItem();
             });
+	    
+	    J(window).bind('resize',{dnd:this},function(e){
+                e.data.dnd.updateArea();
+            });
         },
         
         _getHandle:function(target){
