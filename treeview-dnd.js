@@ -124,7 +124,7 @@ define(function(require, exports, module) {
         removeItem:function(target){
            var dnd_id = target.data('dnd_id'); 
            
-           target.parent().detach(); 
+           target.parent().remove(); 
            if(dnd_id){
                this._items.splice(dnd_id-1,1);
                this.updateArea();
