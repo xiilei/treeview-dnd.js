@@ -321,7 +321,7 @@ define(function(require, exports, module) {
         _bindDocEvent:function(){
              this._doc.bind('mousemove',{dnd:this},function(e){
                  e.stopPropagation();
-                 e.preventDefault();
+                 //e.preventDefault();
                  var dnd = e.data.dnd;
                  if(dnd._timer){
                     clearTimeout(dnd._timer);
@@ -338,12 +338,12 @@ define(function(require, exports, module) {
                 dnd.checkHit();  
             }).bind('mouseup',{dnd:this},function(e){
                 e.stopPropagation();
-                e.preventDefault();
+                //e.preventDefault();
                 var dnd = e.data.dnd;
                 if(dnd._timer){
                     clearTimeout(dnd._timer);
                     dnd._timer=null;
-                    return false;
+                    return;
                 }
                 if(!dnd._copy){
                     return;
