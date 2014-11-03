@@ -173,6 +173,7 @@ define(function(require, exports, module) {
             var me = this;
             me.setArea(me._copy);
             var handle = me._getHandle(me._target);
+	    var i = 0;
             if(!handle){
                 return false;
             }
@@ -183,7 +184,7 @@ define(function(require, exports, module) {
                 me._lastHit = null;
             }
             
-            for(i= 0 ;i<me._items.length;i++){
+            for(;i<me._items.length;i++){
                  if(me.checkCrash(me._copy.area,me._items[i].area)){
                     if(me._lastHit && me._draghoverCls){
                         me._lastHit.removeClass(me._draghoverCls);
