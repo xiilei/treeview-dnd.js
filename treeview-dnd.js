@@ -349,7 +349,7 @@ define(function(require, exports, module) {
                 if(!dnd._copy){
                     return;
                 }
-                dnd._copy.detach();
+                dnd._copy.remove();
                 dnd.updateItem();
             });
 	    
