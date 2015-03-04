@@ -5,9 +5,16 @@
  * @license http://www.apache.org/licenses/LICENSE-2.0
  * @author xilei
  */
-define(function(require, exports, module) {
-    var J = require('jquery');
-    
+
+(function (global, factory) {
+  if (typeof define === "function" && define.cmd) {
+    define(function(require, exports, module){
+        factory(module.exports = {},require('jquery'));// CommonJS
+    });
+  }else {
+    factory(global.TreeDnd = {},jQuery); // <script>
+  }
+})(this,function(exports,J) {
     //drag and drop manager
     var Dnd = {
         
@@ -113,7 +120,7 @@ define(function(require, exports, module) {
         },
         
         updateArea:function(){
-	   var offset = 0,me=this;
+	       var offset = 0,me=this;
            for(;offset<me._items.length;offset++){
                me.setArea(me._items[offset]);
                me._items[offset].data('dnd_id',offset+1);
@@ -173,7 +180,7 @@ define(function(require, exports, module) {
             var me = this;
             me.setArea(me._copy);
             var handle = me._getHandle(me._target);
-	    var i = 0;
+	        var i = 0;
             if(!handle){
                 return false;
             }
@@ -281,7 +288,7 @@ define(function(require, exports, module) {
         
         _bindDrag:function(target,handle){
             target.bind('mousedown',{dnd:this,handle:handle},function(e){
-		if(e.button===2)return false;
+		    if(e.button===2)return false;
                 e.stopPropagation();
                 e.preventDefault();
                 var _this = J(this);
@@ -460,11 +467,8 @@ define(function(require, exports, module) {
         }
         attrs['level'] = level;
         return Dnd.createNewLevel(item,attrs,true);
-    };
+    };  
     
-    
-     
-    module.exports = Dnd;
-  
-   
+    J.extend(exports,Dnd)
+
 });

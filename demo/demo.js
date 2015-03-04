@@ -1,7 +1,6 @@
 define(function(require, exports, module) {
     var J = require('jquery');
     var Dnd = require('../treeview-dnd');
-    
     //Dnd.levelsAttr存储默认数据
     //J.extend({},Dnd.levelsAttr[level-1])
     var data = [
